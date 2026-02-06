@@ -1,4 +1,4 @@
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 const tabs = [
@@ -9,6 +9,8 @@ const tabs = [
 
 export const TabsPage = () => {
   const { tabId } = useParams();
+
+  const selectedTab = tabs.find(tab => tab.id === tabId);
 
   return (
     <div className="section">
@@ -34,16 +36,9 @@ export const TabsPage = () => {
         </div>
 
         <div className="block" data-cy="TabContent">
-          <Outlet />
+          {selectedTab ? selectedTab.content : 'Please select a tab'}
         </div>
       </div>
     </div>
   );
-};
-
-export const TabContent = () => {
-  const { tabId } = useParams();
-  const selectedTab = tabs.find(tab => tab.id === tabId);
-
-  return <>{selectedTab ? selectedTab.content : 'Please select a tab'}</>;
 };
