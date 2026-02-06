@@ -4,7 +4,7 @@ import './App.scss';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { HomePage } from './pages/HomePage';
-import { TabsPage, TabContent } from './pages/TabsPage';
+import { TabsPage } from './pages/TabsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 export const App = () => (
